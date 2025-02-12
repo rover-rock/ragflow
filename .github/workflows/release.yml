@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Ensure workspace ownership
         run: echo "chown -R $USER $GITHUB_WORKSPACE" && sudo chown -R $USER $GITHUB_WORKSPACE
@@ -53,7 +53,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: infiniflow/ragflow:${{ env.RELEASE_TAG }}
+          tags: haomingxuan/ragflow:${{ env.RELEASE_TAG }}
           file: Dockerfile
           platforms: linux/amd64
 
@@ -63,7 +63,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: infiniflow/ragflow:${{ env.RELEASE_TAG }}-slim
+          tags: haomingxuan/ragflow:${{ env.RELEASE_TAG }}-slim
           file: Dockerfile
           build-args: LIGHTEN=1
           platforms: linux/amd64
