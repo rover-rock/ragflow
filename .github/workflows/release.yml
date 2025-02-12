@@ -21,7 +21,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.MY_GITHUB_TOKEN }}  # Use the secret as an environment variable
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use the secret as an environment variable
           fetch-depth: 0
           fetch-tags: true
 
